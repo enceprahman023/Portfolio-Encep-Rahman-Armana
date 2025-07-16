@@ -1,0 +1,167 @@
+/* === General === */
+body {
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 70px; /* biar isi konten tidak ketutup navbar */
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+/* === Navbar === */
+.navbar {
+  background-color: #8a7ee5; /* Ubah ini sesuai warna yang kamu mau */
+  box-shadow: 0 2px 8px rgba(252, 252, 252, 0.963);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  color: #fff !important;
+}
+
+.navbar .nav-link {
+  margin-left: 15px;
+  color: #fff !important;
+}
+
+.navbar .nav-link:hover {
+  color: #fbc2eb !important; /* warna hover (pink muda) */
+}
+
+
+
+
+/* === Section === */
+section {
+  padding: 80px 0;
+}
+
+/* Home section */
+#home {
+  background: linear-gradient(to right, #eeeff2, #2a5298);
+  color: white;
+  text-align: center;
+}
+
+/* About */
+#about img {
+  max-width: 150px;
+  border: 4px solid #ddd;
+}
+
+/* Projects & Contact */
+#projects, #contact {
+  text-align: center;
+}
+
+/* Footer */
+#footer {
+  background-color: #e9e1e1;
+  color: #fff;
+}
+/* Awal Halaman Beranda */
+/* Home Section Styling */
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#home h1 {
+  font-size: 2.5rem;
+}
+
+#home h2 {
+  font-size: 1.75rem;
+  color: #2a5298;
+}
+
+#home p {
+  font-size: 1.1rem;
+}
+
+#home img {
+  max-width: 100%;
+  height: auto;
+  border: 5px solid #eee;
+}
+#home {
+  background: linear-gradient(to right, #4b2ddfce, #a18cd1, #1d0a73); /* Elegan & dalam */
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-top: -70px;  /* Naikkan section agar tidak ada gap putih */
+  padding-top: 70px; 
+}
+
+#particles-js {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+}
+/* Akhir Halaman Beranda */
+
+/* Awal Halaman Tentang Saya */
+#about {
+  min-height: 400px;
+}
+
+.about-row {
+  min-height: 300px;
+}
+
+.about-box {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: right;
+}
+
+#about p.lead {
+    text-align: left; 
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+#about .social-icons a {
+  transition: transform 0.2s;
+}
+
+#about .social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Akhir Halaman Tentang Saya */
+
+/* Awal halaman Projek */
+#projects .card {
+  transition: transform 0.2s ease-in-out;
+}
+
+#projects .card:hover {
+  transform: translateY(-5px);
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.card:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+}
+/* Akhir halaman Projek */
+
+/* Awal Halaman Contak */
+.hover-shadow:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  transform: scale(1.02);
+}
+/* Akhir Halaman Contak */
