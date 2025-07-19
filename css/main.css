@@ -1,100 +1,162 @@
 /* === General === */
-body {
-  scroll-behavior: smooth;
-  font-family: 'Segoe UI', sans-serif;
-  margin-top: 70px; /* biar isi konten tidak ketutup navbar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1, h2, h3, h4 {
-  font-weight: 600;
+body {
+  scroll-behavior: smooth;
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 70px;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 /* === Navbar === */
 .navbar {
-  background-color: #8a7ee5; /* Ubah ini sesuai warna yang kamu mau */
-  box-shadow: 0 2px 8px rgba(252, 252, 252, 0.963);
+  background: rgba(138, 126, 229, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 1rem 0;
 }
 
 .navbar-brand {
-  font-weight: bold;
-  font-size: 1.3rem;
+  font-weight: 800;
+  font-size: 1.4rem;
   letter-spacing: 0.5px;
   color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
 }
 
 .navbar .nav-link {
-  margin-left: 15px;
+  margin-left: 20px;
   color: #fff !important;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #fbc2eb;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
 }
 
 .navbar .nav-link:hover {
-  color: #fbc2eb !important; /* warna hover (pink muda) */
+  color: #fbc2eb !important;
+  transform: translateY(-2px);
 }
-
-
-
 
 /* === Section === */
 section {
-  padding: 80px 0;
+  padding: 100px 0;
+  position: relative;
 }
 
 /* Home section */
 #home {
-  background: linear-gradient(to right, #eeeff2, #2a5298);
-  color: white;
-  text-align: center;
-}
-
-/* About */
-#about img {
-  max-width: 150px;
-  border: 4px solid #ddd;
-}
-
-/* Projects & Contact */
-#projects, #contact {
-  text-align: center;
-}
-
-/* Footer */
-#footer {
-  background-color: #e9e1e1;
-  color: #fff;
-}
-/* Awal Halaman Beranda */
-/* Home Section Styling */
-#home {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
+  position: relative;
+  margin-top: -70px;
+  padding-top: 70px;
+  overflow: hidden;
+}
+
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
 }
 
 #home h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out;
 }
 
 #home h2 {
-  font-size: 1.75rem;
-  color: #2a5298;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #fff;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 #home p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+#home .btn {
+  animation: fadeInUp 1s ease-out 0.6s both;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#home .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 #home img {
-  max-width: 100%;
-  height: auto;
-  border: 5px solid #eee;
+  width: 300px;
+  height: 300px;
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: float 6s ease-in-out infinite;
+  object-fit: cover;
+  object-position: center;
 }
-#home {
-  background: linear-gradient(to right, #4b2ddfce, #a18cd1, #1d0a73); /* Elegan & dalam */
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-  margin-top: -70px;  /* Naikkan section agar tidak ada gap putih */
-  padding-top: 70px; 
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #particles-js {
@@ -103,65 +165,678 @@ section {
   height: 100%;
   width: 100%;
 }
-/* Akhir Halaman Beranda */
 
-/* Awal Halaman Tentang Saya */
+/* About Section */
 #about {
-  min-height: 400px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
 }
 
+/* Removed the diagonal wave overlay */
+
 .about-row {
-  min-height: 300px;
+  min-height: 500px;
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
 }
 
 .about-box {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  text-align: right;
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #333;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.about-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+#about h2 {
+  color: #333;
+  margin-bottom: 3rem;
+  position: relative;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#about h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
 }
 
 #about p.lead {
-    text-align: left; 
   font-size: 1.1rem;
-  line-height: 1.7;
-  margin: 0;
+  line-height: 1.8;
+  color: #333;
 }
 
-#about .social-icons a {
-  transition: transform 0.2s;
+/* Social Media Card */
+.social-card {
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #333;
+  height: 100%;
+  max-width: 95%;
+  margin: 0 auto;
 }
 
-#about .social-icons a:hover {
-  transform: scale(1.2);
+.social-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
-/* Akhir Halaman Tentang Saya */
-
-/* Awal halaman Projek */
-#projects .card {
-  transition: transform 0.2s ease-in-out;
+.social-card h4 {
+  color: #333;
+  margin-bottom: 1rem;
 }
 
-#projects .card:hover {
-  transform: translateY(-5px);
+.social-card p {
+  color: #666;
+  margin-bottom: 2rem;
 }
-.card-img-top {
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: #fbc2eb;
+}
+
+/* Projects Section */
+#projects {
+  background: #fff;
+  position: relative;
+}
+
+#projects h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#projects h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px 0 rgba(123, 97, 255, 0.18), 0 1.5px 6px 0 rgba(123, 97, 255, 0.10);
+  border: 1.5px solid #e0d7fa;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 16px 48px 0 rgba(123, 97, 255, 0.22), 0 3px 12px 0 rgba(123, 97, 255, 0.13);
+  border-color: #8b5cf6;
+}
+
+.project-card .card-img-top {
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.project-card .card-body {
+  padding: 2rem;
+}
+
+.project-card .card-title {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-card .card-text {
+  color: #666;
+  line-height: 1.6;
+}
+
+.project-card .btn {
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.project-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Certificates Section */
+#certificates {
+  background: #ffffff;
+  position: relative;
+}
+
+#certificates h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.certificate-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px 0 rgba(123, 97, 255, 0.18), 0 1.5px 6px 0 rgba(123, 97, 255, 0.10);
+  border: 1.5px solid #e0d7fa;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.certificate-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 16px 48px 0 rgba(123, 97, 255, 0.22), 0 3px 12px 0 rgba(123, 97, 255, 0.13);
+  border-color: #8b5cf6;
+}
+
+.certificate-card .card-img-top {
   height: 200px;
   object-fit: cover;
 }
-.card:hover {
-  transform: scale(1.03);
-  transition: transform 0.3s ease;
-}
-/* Akhir halaman Projek */
 
-/* Awal Halaman Contak */
-.hover-shadow:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-  transform: scale(1.02);
+.certificate-card .card-body {
+  padding: 1.5rem;
 }
-/* Akhir Halaman Contak */
+
+.certificate-card .card-title {
+  color: #333;
+  font-weight: 700;
+}
+
+.certificate-card .card-text {
+  color: #666;
+}
+
+.certificate-card .btn {
+  border-radius: 25px;
+  padding: 6px 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.certificate-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+}
+
+#contact h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-item {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.contact-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  color: #333;
+}
+
+.contact-item i {
+  color: #667eea;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.contact-item p {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Footer */
+#footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Wave SVG */
+.wave-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-wrapper svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.wave-wrapper svg path {
+  fill: #fff;
+  fill-opacity: 0.8;
+}
+
+.wave-purple svg path {
+  fill: #8b5cf6 !important;
+  fill-opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .navbar .nav-link {
+    margin-left: 10px;
+    font-size: 0.9rem;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+  
+  #home {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  
+  #home h1 {
+    font-size: 2rem;
+  }
+  
+  #home h2 {
+    font-size: 1.5rem;
+  }
+  
+  #home p {
+    font-size: 1rem;
+  }
+  
+  #home img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .about-box {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  
+  .social-card {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  
+  .social-icons {
+    gap: 1rem;
+  }
+  
+  .social-icons a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .project-card .card-body {
+    padding: 1.5rem;
+  }
+  
+  .contact-card {
+    padding: 2rem;
+  }
+  
+  .contact-item {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    margin-top: 60px;
+  }
+  
+  #home {
+    margin-top: -60px;
+    padding-top: 60px;
+  }
+  
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  #home h1 {
+    font-size: 1.8rem;
+  }
+  
+  #home h2 {
+    font-size: 1.3rem;
+  }
+  
+  #home p {
+    font-size: 1rem;
+  }
+  
+  .about-box {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  
+  .social-card {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  
+  .project-card .card-body {
+    padding: 1rem;
+  }
+  
+  .certificate-card .card-body {
+    padding: 1rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-item {
+    padding: 1rem;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Loading animation */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.loading.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effects for cards */
+.card {
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Button animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Additional improvements */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.shadow-custom {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-custom:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Typing animation */
+.typing-animation {
+  border-right: 2px solid #fff;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #fff; }
+}
+
+/* Parallax effect */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Mobile menu improvements */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(138, 126, 229, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  
+  .navbar-nav {
+    text-align: center;
+  }
+  
+  .navbar-nav .nav-link {
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Improved focus states for accessibility */
+.btn:focus,
+.nav-link:focus,
+.social-icons a:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  .about-box {
+    background: #ffffff;
+    color: #333;
+  }
+  
+  .social-card {
+    background: #ffffff;
+    color: #333;
+  }
+  
+  .project-card {
+    background: #ffffff;
+    color: #333;
+  }
+  
+  .certificate-card {
+    background: #ffffff;
+    color: #333;
+  }
+  
+  .contact-item {
+    background: #ffffff;
+    color: #333;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .scroll-to-top,
+  #particles-js {
+    display: none !important;
+  }
+  
+  body {
+    margin-top: 0;
+  }
+  
+  section {
+    page-break-inside: avoid;
+  }
+}
+
+/* Pastikan gelombang variasi selalu tampil di semua ukuran layar */
+.m-0.p-0, .m-0.p-0 svg {
+  display: block !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  max-width: 100vw !important;
+}
